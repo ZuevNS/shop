@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
 
+
 class ProductInOrderInline(admin.TabularInline):
     model = ProductInOrder
     extra = 0
@@ -25,12 +26,11 @@ class OrderAdmin (admin.ModelAdmin):
 admin.site.register(Order, OrderAdmin)
 
 
-class ProductInOrderAdmin(admin.ModelAdmin):
+class ProductInOrderAdmin (admin.ModelAdmin):
     list_display = [field.name for field in ProductInOrder._meta.fields]
 
     class Meta:
         model = ProductInOrder
-
 
 admin.site.register(ProductInOrder, ProductInOrderAdmin)
 
